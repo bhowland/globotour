@@ -1,6 +1,7 @@
 package com.howland.globotour.city
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,17 @@ import com.howland.globotour.R
 class CityAdapter(val context: Context, var cityList: ArrayList<City>) : RecyclerView.Adapter<CityAdapter.CityViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
+
+        Log.i("CityAdapter", "onCreateViewHolder ViewHolder here")
+
         val itemView = LayoutInflater.from(context).inflate(R.layout.list_item_city, parent, false)
         return CityViewHolder(itemView)
     }
 
     override fun onBindViewHolder(cityViewHolder: CityViewHolder, position: Int) {
+
+        Log.i("CityAdapter", "onBindViewHolder position $position")
+
         val city = cityList[position]
         cityViewHolder.setData(city, position)
     }
